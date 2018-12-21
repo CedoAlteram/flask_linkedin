@@ -13,7 +13,7 @@ That said, here's how to get it to work.
 
 ![linkedin_Flask_API](imgs/sweet.png "Sweet!")
 
-##Setup
+## Setup
 - [x] python3.5 with Ubuntu 16.04LTS
 - [x] set up virtual env
 
@@ -22,7 +22,7 @@ $ pip3.5 install -r requirements.txt
 
 ```
 
-##Building out flask is as follows:
+## Building out flask is as follows:
 
 - [x] sudo apt-get update && sudo apt-get upgrade
 - [x] sudo apt-get install apache2 
@@ -54,7 +54,8 @@ $ pip3.5 install -r requirements.txt
 - [x] sudo a2ensite FlaskApp
 - [x] service apache2 reload
 
-##Boom, Now you can run the app.py application. To do so, go
+## Boom! 
+Now you can run the app.py application. To do so, go
 
 
 ```

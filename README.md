@@ -14,7 +14,7 @@ That said, here is how this works.
 
 
 
-Setup
+##Setup
 - [x] python3.5 with Ubuntu 16.04LTS
 - [x] set up virtual env
 
@@ -23,7 +23,7 @@ $ pip3.5 install -r requirements.txt
 
 ```
 
-Building out flask is as follows:
+##Building out flask is as follows:
 
 - [x] sudo apt-get update && sudo apt-get upgrade
 - [x] sudo apt-get install apache2 
@@ -55,7 +55,7 @@ Building out flask is as follows:
 - [x] sudo a2ensite FlaskApp
 - [x] service apache2 reload
 
-Boom, Now you can run the app.py application. To do so, go
+##Boom, Now you can run the app.py application. To do so, go
 
 
 ```
@@ -67,7 +67,8 @@ In another terminal, you'll need to run li_requestor.py, this will make the curl
 $ python3.5 li_requestor.py 'name of company'
 ```
 
-TBH, this thing is a bit of a hack, as you need to use li_requestor to replace whitespaces with "-". That happens 
-under the urllify()
+# Lessons Learned
+TBH, this thing is a bit of a hack, as you need to use li_requestor to replace whitespaces with "-" rather than making
+the requrest directly via curl. That's because the the whitespace is swapped under the urllify()
 
-So, it is what it is, and I am proud that I even got it to work that much.
+So, it is what it is, and I am proud of it. 

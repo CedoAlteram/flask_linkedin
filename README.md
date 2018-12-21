@@ -12,7 +12,7 @@ to the request. However, I wanted to show a triggering of events.
 
 That said, here is how this works.
 
-![linkedin_Flask_API](images/sweet.png "Sweet!")
+![linkedin_Flask_API](imgs/sweet.png "Sweet!")
 
 ##Setup
 - [x] python3.5 with Ubuntu 16.04LTS

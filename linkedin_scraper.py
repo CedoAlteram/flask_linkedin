@@ -1,9 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 import os
@@ -13,6 +10,7 @@ import random
 import re
 
 
+# makes the requests to chromedriver and returns driver
 def chrome_me(url):
     try:
         chrome_options = Options()
@@ -33,6 +31,7 @@ def chrome_me(url):
     return driver
 
 
+# this method logs in and gets the data from whatever company. PW's for fake account sent via email.
 def grab_em(company_name):
     linkedin_login = 'https://www.linkedin.com'
     user_id = '**********'
@@ -41,15 +40,14 @@ def grab_em(company_name):
     driver = chrome_me(linkedin_login)
     time.sleep(random.uniform(3.5, 6.9))
 
+    # Login
     try:
         email_element = driver.find_element_by_class_name("login-email")
         pass_element = driver.find_element_by_class_name("login-password")
         submit_button = driver.find_element_by_id("login-submit")
         email_element.send_keys(user_id)
         pass_element.send_keys(user_password)
-        print('I found them and added the passwords!')
         time.sleep(random.uniform(1.2, 4.1))
-        print('submitting')
         submit_button.click()
 
     except NoSuchElementException as exception:
@@ -70,8 +68,10 @@ def grab_em(company_name):
 
     complete_img_list = []
 
+    # looking for pagination
     while True:
         try:
+            # all these sleeps are because you have to go slow or use IPv6
             time.sleep(10)
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             page = driver.find_element_by_tag_name("html")
@@ -81,22 +81,28 @@ def grab_em(company_name):
             print(driver.current_url)
             page_source = driver.page_source
 
+            # beautiful soup takes all the html and looks for 'src' with C4 and C5
             soup = BeautifulSoup(page_source, 'html.parser')
 
+            # passes to regex
             c4 = soup.find_all(src=re.compile("https://media.licdn.com/dms/image/C4"))
             c5 = soup.find_all(src=re.compile("https://media.licdn.com/dms/image/C5"))
 
+            # append
             c4_src = [x['src'] for x in c4]
             c5_src = [y['src'] for y in c5]
 
+            # combine lists
             pg_img_urls = c4_src + c5_src
             for img_url in pg_img_urls:
                 complete_img_list.append(img_url)
                 # print(img_url)
-            time.sleep(random.uniform(35.2, 48.1))
+            time.sleep(random.uniform(25.2, 38.1))
             next_page.click()
             continue
         except NoSuchElementException as exception:
+            print(exception)
+            # breaks when there are no more next links
             print('this looks to be the last page')
             page_source = driver.page_source
 
@@ -114,17 +120,12 @@ def grab_em(company_name):
                 print(img_url)
             break
 
-    print(complete_img_list)
+    # removing the profile img url
     for total_img in complete_img_list:
         if '100_100' in total_img:
             complete_img_list.remove(total_img)
 
-    time.sleep(25.5)
-
+    # close and quit chrome driver
     driver.close()
     driver.quit()
     return list(set(complete_img_list))
-
-
-# completed_urls = grab_em('people data labs')
-# print(completed_urls)

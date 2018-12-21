@@ -18,7 +18,8 @@ Setup
 - [x] python3.5 with Ubuntu 16.04LTS
 - [x] set up virtual env
 
-```$ pip3.5 install -r requirements.txt
+```
+$ pip3.5 install -r requirements.txt
 
 ```
 

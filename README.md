@@ -70,4 +70,6 @@ $ python3.5 li_requestor.py 'name of company'
 TBH, this thing is a bit of a hack, as you need to use li_requestor to replace whitespaces with "-". That happens 
 under the urllify()
 
-So, it is what it is, and I am proud that I even got it to work that much.
+So, it is what it is, and I am proud that I was able to get anything from LinkedIn.
+
+

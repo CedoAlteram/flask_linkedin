@@ -4,17 +4,16 @@ Let me start by saying that scraping linkedin is no easy task. It's like they we
 
 This thing needs a lot of things, but it works, and pulls images. 
 
-The hardest thing with scraping linked in is that they use dynamic elements for almost everything. Obviously, it is on
-purpose. 
+The hardest thing with scraping linkedin is that they use dynamic elements for almost everything. Obviously, it is on
+purpose. In the future, I would not scrape again.
 
-With that, it works... ok. The API? Great. The scraper... I'd rebuild it another way, mostly generating the data prior 
-to the request. However, I wanted to show a triggering of events. 
+With that, it works... ok. The API? Great! The scraper, it aint the prettiest pony, but it works... That said, I'd rebuild it another way, mostly generating the data prior to the request. However, I wanted to show a triggering of events. 
 
-That said, here is how this works.
+That said, here's how to get it to work.
 
-![linkedin_Flask_API](images/sweet.png "Sweet!")
+![linkedin_Flask_API](imgs/sweet.png "Sweet!")
 
-##Setup
+## Setup
 - [x] python3.5 with Ubuntu 16.04LTS
 - [x] set up virtual env
 
@@ -23,7 +22,7 @@ $ pip3.5 install -r requirements.txt
 
 ```
 
-##Building out flask is as follows:
+## Building out flask is as follows:
 
 - [x] sudo apt-get update && sudo apt-get upgrade
 - [x] sudo apt-get install apache2 
@@ -55,7 +54,8 @@ $ pip3.5 install -r requirements.txt
 - [x] sudo a2ensite FlaskApp
 - [x] service apache2 reload
 
-##Boom, Now you can run the app.py application. To do so, go
+## Boom! 
+Now you can run the app.py application. To do so, go
 
 
 ```
